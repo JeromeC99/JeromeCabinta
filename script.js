@@ -17,12 +17,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== DARK/LIGHT MODE =====
   const themeToggle = document.getElementById("theme-toggle");
+
+  // Apply saved theme on load
+  if(localStorage.getItem("theme") === "dark"){
+    document.body.classList.add("dark");
+    themeToggle.textContent = "☀️";
+  }
+
   themeToggle.addEventListener("click", () => {
     document.body.classList.toggle("dark");
     themeToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
   });
 
-  // ===== FADE-IN ON SCROLL =====
+  // ===== FADE-IN SECTIONS =====
   const sections = document.querySelectorAll(".section");
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
