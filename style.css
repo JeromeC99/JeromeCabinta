@@ -57,7 +57,7 @@ p { margin: 0.5em 0; }
   top: 0;
   background: var(--bg-color);
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  z-index: 1000;
+  z-index: 5000;
 }
 
 .nav-container {
@@ -173,7 +173,7 @@ p { margin: 0.5em 0; }
 .about-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: Left;
   transition: transform 0.3s;
 }
 
