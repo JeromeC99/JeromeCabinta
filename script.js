@@ -6,24 +6,19 @@ document.addEventListener("DOMContentLoaded", () => {
   hamburger?.addEventListener("click", () => {
     navLinks.classList.toggle("show");
     hamburger.classList.toggle("active");
-
-    const expanded = hamburger.getAttribute("aria-expanded") === "true";
-    hamburger.setAttribute("aria-expanded", String(!expanded));
   });
 
   navLinks?.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       navLinks.classList.remove("show");
       hamburger.classList.remove("active");
-      hamburger.setAttribute("aria-expanded", "false");
     });
   });
 
   /* THEME TOGGLE */
   const themeToggle = document.getElementById("theme-toggle");
 
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
+  if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark");
     if (themeToggle) themeToggle.textContent = "☀️";
   } else {
@@ -49,24 +44,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = e.target.closest(".project-card");
       if (!card) return;
 
-      const img = card.querySelector("img");
-      const title = card.querySelector("h3");
-      const desc = card.querySelector("p");
-
-      modalImg.src = img?.src || "";
-      modalImg.alt = img?.alt || "Project preview";
-      modalTitle.textContent = title?.textContent || "";
-      modalDesc.textContent = desc?.textContent || "";
+      modalImg.src = card.querySelector("img").src;
+      modalImg.alt = card.querySelector("img").alt;
+      modalTitle.textContent = card.querySelector("h3").textContent;
+      modalDesc.textContent = card.querySelector("p").textContent;
 
       modal.style.display = "block";
-      modal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
     });
   });
 
   function closeProjectModal() {
     modal.style.display = "none";
-    modal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
   }
 
@@ -83,4 +72,17 @@ document.addEventListener("DOMContentLoaded", () => {
       closeProjectModal();
     }
   });
+
+  /* SCROLL REVEAL */
+  const reveals = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      }
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(el => observer.observe(el));
 });
