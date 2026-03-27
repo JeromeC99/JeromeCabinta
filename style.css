@@ -296,7 +296,7 @@ body.dark .hero {
 
 .about-image img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio:auto;
   object-fit: cover;
   border-radius: 30px;
   box-shadow: var(--shadow);
