@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jerome Cabinta | Portfolio</title>
+  <meta name="description" content="Graphic Designer, Web Designer, and Email Designer Portfolio of Jerome Cabinta." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -16,14 +17,15 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
 
       <div class="nav-actions">
-        <button class="theme-toggle" id="theme-toggle">🌙</button>
-        <button class="hamburger" id="hamburger">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
           <span></span>
           <span></span>
           <span></span>
@@ -36,15 +38,32 @@
   <section id="hero" class="hero">
     <div class="hero-content">
       <p class="hero-tag">Graphic Designer • Web Designer • Email Designer</p>
-      <h1>Designing clean, modern, and conversion-focused digital experiences.</h1>
+      <h1>I design clean, modern, and conversion-focused digital experiences.</h1>
       <p class="hero-text">
-        I help brands stand out through professional website design, email design,
-        and visual content that looks clean, builds trust, and drives results.
+        I help brands look more professional online through thoughtful web design,
+        email design, social visuals, and user-focused digital experiences.
       </p>
 
       <div class="hero-buttons">
         <a href="#projects" class="btn primary">View My Work</a>
         <a href="#contact" class="btn secondary">Let’s Connect</a>
+        <!-- Optional Resume Button -->
+        <!-- <a href="resume.pdf" target="_blank" class="btn ghost">Download CV</a> -->
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <h3>Design</h3>
+          <p>Clean, modern, and brand-focused visuals</p>
+        </div>
+        <div class="stat-card">
+          <h3>Web</h3>
+          <p>Responsive websites with strong UX</p>
+        </div>
+        <div class="stat-card">
+          <h3>Email</h3>
+          <p>Professional email layouts and campaigns</p>
+        </div>
       </div>
     </div>
   </section>
@@ -52,27 +71,26 @@
   <!-- ABOUT -->
   <section id="about" class="section about">
     <div class="about-image">
-      <img src="image/Me.01.png" alt="Jerome Cabinta" />
+      <img src="image/Me.01.png" alt="Jerome Cabinta portrait" />
     </div>
 
     <div class="about-content">
       <p class="section-label">About Me</p>
-      <h2>Creative, detail-focused, and passionate about meaningful design.</h2>
+      <h2>Creative, detail-focused, and committed to meaningful design.</h2>
       <p>
         I’m a Graphic Designer and IT graduate with experience in web design,
-        email design, digital marketing, and visual branding. I enjoy combining
-        creativity with technical thinking to build designs that are not only
-        visually appealing, but also useful and effective.
+        email design, visual branding, and digital marketing. I enjoy creating
+        work that is both visually appealing and strategically useful.
       </p>
       <p>
-        My goal is to help businesses communicate clearly, look more professional,
-        and grow with confidence online.
+        My goal is to help businesses communicate clearly, build trust, and
+        create a stronger digital presence.
       </p>
 
       <div class="about-highlights">
         <div class="highlight-box">
           <h3>Faith & Values</h3>
-          <p>Grounded in integrity, kindness, and purpose-driven work.</p>
+          <p>Grounded in integrity, purpose, kindness, and excellence.</p>
         </div>
         <div class="highlight-box">
           <h3>Education</h3>
@@ -80,14 +98,47 @@
         </div>
         <div class="highlight-box">
           <h3>Experience</h3>
-          <p>Design, marketing, web, and email projects across organizations.</p>
+          <p>Design, marketing, and digital support across organizations.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- SERVICES -->
+  <section id="services" class="section alt-section">
+    <p class="section-label center">What I Do</p>
+    <h2 class="section-title">Services</h2>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Website Design</h3>
+        <p>Modern, responsive websites designed for clarity, trust, and conversion.</p>
+      </div>
+      <div class="service-card">
+        <h3>Email Design</h3>
+        <p>Professional email layouts and branded campaigns for better communication.</p>
+      </div>
+      <div class="service-card">
+        <h3>Graphic Design</h3>
+        <p>Social media visuals, promotional materials, and clean brand graphics.</p>
+      </div>
+      <div class="service-card">
+        <h3>Landing Pages</h3>
+        <p>Conversion-focused layouts designed to support campaigns and offers.</p>
+      </div>
+      <div class="service-card">
+        <h3>Social Media Design</h3>
+        <p>Scroll-stopping creatives tailored for online engagement and consistency.</p>
+      </div>
+      <div class="service-card">
+        <h3>UI Layout Design</h3>
+        <p>User-friendly interface concepts with thoughtful spacing and structure.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- SKILLS -->
-  <section id="skills" class="section alt-section">
+  <section id="skills" class="section">
     <p class="section-label center">Tools & Skills</p>
     <h2 class="section-title">Platforms and tools I use</h2>
 
@@ -104,7 +155,7 @@
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="section">
+  <section id="projects" class="section alt-section">
     <p class="section-label center">Featured Work</p>
     <h2 class="section-title">Selected Projects</h2>
 
@@ -112,8 +163,9 @@
       <div class="project-card">
         <img src="projects/book-cover.jpg" alt="Book Cover Project">
         <div class="project-info">
+          <span class="project-tag">Graphic Design</span>
           <h3>Book Cover Design</h3>
-          <p>Professional book cover concepts designed for strong visual impact.</p>
+          <p>Professional cover concepts designed for strong visual impact and readability.</p>
           <button class="view-project">View Project</button>
         </div>
       </div>
@@ -121,8 +173,9 @@
       <div class="project-card">
         <img src="projects/social-media-ad.jpg" alt="Social Media Ad Project">
         <div class="project-info">
+          <span class="project-tag">Advertising</span>
           <h3>Social Media Ads</h3>
-          <p>Creative ad designs made to capture attention and support campaigns.</p>
+          <p>Creative ad designs made to support campaigns and capture attention quickly.</p>
           <button class="view-project">View Project</button>
         </div>
       </div>
@@ -130,8 +183,9 @@
       <div class="project-card">
         <img src="projects/email-design.jpg" alt="Email Design Project">
         <div class="project-info">
+          <span class="project-tag">Email Design</span>
           <h3>Email Design</h3>
-          <p>Clean and conversion-focused email templates for brand communication.</p>
+          <p>Clean, professional, and conversion-aware email layouts for brands.</p>
           <button class="view-project">View Project</button>
         </div>
       </div>
@@ -139,8 +193,9 @@
       <div class="project-card">
         <img src="projects/website.jpg" alt="Website Project">
         <div class="project-info">
+          <span class="project-tag">Web Design</span>
           <h3>Website Design</h3>
-          <p>Responsive website designs with a focus on layout, clarity, and UX.</p>
+          <p>Responsive layouts with strong structure, modern styling, and UX focus.</p>
           <button class="view-project">View Project</button>
         </div>
       </div>
@@ -148,8 +203,19 @@
       <div class="project-card">
         <img src="projects/social-media-management.jpg" alt="Social Media Management">
         <div class="project-info">
+          <span class="project-tag">Content Design</span>
           <h3>Social Media Management</h3>
-          <p>Visual content and strategy support for growing online presence.</p>
+          <p>Creative support and visual consistency for social media presence.</p>
+          <button class="view-project">View Project</button>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="projects/landing-page.jpg" alt="Landing Page Project">
+        <div class="project-info">
+          <span class="project-tag">Landing Page</span>
+          <h3>Landing Page Design</h3>
+          <p>Focused layouts designed to present offers clearly and support conversions.</p>
           <button class="view-project">View Project</button>
         </div>
       </div>
@@ -157,9 +223,9 @@
   </section>
 
   <!-- MODAL -->
-  <div id="project-modal" class="modal">
+  <div id="project-modal" class="modal" aria-hidden="true">
     <div class="modal-content">
-      <span class="close">&times;</span>
+      <button class="close" aria-label="Close modal">&times;</button>
       <img id="modal-img" src="" alt="">
       <h3 id="modal-title"></h3>
       <p id="modal-desc"></p>
@@ -167,20 +233,24 @@
   </div>
 
   <!-- CONTACT -->
-  <section id="contact" class="section alt-section">
+  <section id="contact" class="section">
     <p class="section-label center">Get In Touch</p>
     <h2 class="section-title">Contact Me</h2>
 
-    <div class="contact-wrapper social-contact">
-      <div class="contact-info centered-contact">
-        <p>Email: <a href="mailto:jeromecabinta7@gmail.com">jeromecabinta7@gmail.com</a></p>
+    <div class="contact-card">
+      <p class="contact-text">
+        If you’d like to work together, collaborate, or simply connect, feel free to reach out.
+      </p>
 
-        <div class="social-links">
-          <a href="https://facebook.com/yourusername" target="_blank">Facebook</a>
-          <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
-          <a href="https://behance.net/yourusername" target="_blank">Behance</a>
-        </div>
+      <p class="contact-email">
+        Email: <a href="mailto:jeromecabinta7@gmail.com">jeromecabinta7@gmail.com</a>
+      </p>
+
+      <div class="social-links">
+        <a href="https://facebook.com/yourusername" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://behance.net/yourusername" target="_blank" rel="noopener noreferrer">Behance</a>
       </div>
     </div>
   </section>
