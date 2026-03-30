@@ -406,6 +406,48 @@ body.dark .hero {
   line-height: 1.6;
 }
 
+/* =========================
+   SOFT SKILLS - PILL BADGES
+========================= */
+.soft-skills-card {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem 1rem;
+}
+
+.soft-skills-card h3 {
+  font-size: 2rem;
+  margin-bottom: 1.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.soft-skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.soft-skills-grid span {
+  background: var(--card-bg);
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.soft-skills-grid span:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+}
+
 /* SERVICES */
 .services-grid {
   max-width: var(--container);
