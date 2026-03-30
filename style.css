@@ -285,27 +285,62 @@ body.dark .hero {
 }
 
 /* ABOUT */
+/* =========================
+   ABOUT SECTION PREMIUM LAYOUT
+========================= */
 .about {
-  max-width: var(--container);
+  max-width: var(--container-width);
   margin: auto;
-  display: grid;
-  grid-template-columns: 0.95fr 1.1fr;
-  gap: 60px;
-  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.about-image {
+  flex: 1 1 320px;
+  max-width: 400px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
 }
 
 .about-image img {
   width: 100%;
-  aspect-ratio:auto;
+  height: 100%;
   object-fit: cover;
-  border-radius: 30px;
-  box-shadow: var(--shadow);
+}
+
+.about-content {
+  flex: 2 1 700px;
+}
+
+.section-tag {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.06);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+body.dark .section-tag {
+  background: rgba(255,255,255,0.08);
 }
 
 .about-content h2 {
-  font-size: clamp(1.9rem, 4vw, 2.8rem);
-  line-height: 1.15;
-  margin-bottom: 18px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.about-intro {
+  font-size: 1.05rem;
+  color: var(--muted-color);
+  max-width: 760px;
+  margin-bottom: 2rem;
+  line-height: 1.9;
 }
 
 .about-content p {
@@ -338,97 +373,211 @@ body.dark .hero {
   gap: 1.5rem;
   margin-top: 1rem;
 }
-
 /* =========================
-   EDUCATION + EXPERIENCE CLEAN STYLE
+   EDUCATION + EXPERIENCE SIDE BY SIDE
 ========================= */
+.info-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: start;
+}
 
 .info-card {
   background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
-  padding: 1.8rem;
-  box-shadow: var(--shadow);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
   transition: all 0.3s ease;
-  text-align: center;
 }
 
 .info-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
 }
 
 .info-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 1.2rem;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}
+
+/* Education + Experience list */
+.education-list,
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.education-item,
+.experience-item {
+  padding: 1.2rem 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
   text-align: center;
 }
 
-.info-card ul {
-  list-style: none;
-  padding-left: 0;
+.education-item:last-child,
+.experience-item:last-child {
+  border-bottom: none;
+}
+
+.education-item h4,
+.experience-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+  color: var(--text-color);
+}
+
+.education-item span {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 0.4rem;
+}
+
+.education-item p,
+.experience-item p {
+  font-size: 0.95rem;
+  color: var(--muted-color);
+  line-height: 1.6;
   margin: 0;
 }
 
-.info-card ul li {
-  list-style: none;
-  text-align: center;
-  line-height: 1.8;
-  margin-bottom: 1.3rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-}
-
-.info-card ul li:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.info-card strong {
-  display: block;
-  font-size: 1.05rem;
+.experience-year {
+  display: inline-block;
+  margin-bottom: 0.7rem;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.05);
+  font-size: 0.85rem;
   font-weight: 700;
-  margin-bottom: 0.35rem;
-  color: var(--text-color);
+  color: var(--accent-color);
+}
+/* =========================
+   TOOLS & SKILLS PREMIUM SECTION
+========================= */
+.tools-section {
+  padding: 6rem 1.5rem;
+  text-align: center;
 }
 
-.info-card span {
-  display: block;
-  font-size: 0.97rem;
-  color: var(--text-color);
-  margin-bottom: 0.25rem;
+.tools-header {
+  margin-bottom: 3rem;
 }
 
-.info-card small {
-  display: block;
+.section-label {
+  display: inline-block;
   font-size: 0.9rem;
-  color: var(--muted-color);
-  line-height: 1.6;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #8a6b4b;
+  margin-bottom: 1rem;
+  font-weight: 500;
 }
 
-/* =========================
-   SOFT SKILLS - PILL BADGES
-========================= */
-.soft-skills-card {
-  text-align: center;
-  margin-top: 3rem;
-  padding: 2rem 1rem;
-}
-
-.soft-skills-card h3 {
-  font-size: 2rem;
-  margin-bottom: 1.8rem;
-  font-weight: 700;
+.tools-header h2 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
   color: var(--text-color);
+  margin: 0;
+  line-height: 1.2;
 }
 
-.soft-skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 14px;
-  max-width: 900px;
+.tools-grid {
+  max-width: 1200px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 24px;
+  justify-items: center;
+}
+
+.tool-card {
+  width: 100%;
+  max-width: 160px;
+  min-height: 170px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 28px;
+  padding: 2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.05);
+  transition: all 0.35s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+}
+
+.tool-card img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  margin-bottom: 1.2rem;
+}
+
+.tool-card p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* Dark Mode */
+body.dark .tool-card {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+
+body.dark .section-label {
+  color: #d2a679;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .tools-section {
+    padding: 4rem 1rem;
+  }
+
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .tool-card {
+    max-width: 100%;
+    min-height: 150px;
+    padding: 1.5rem 1rem;
+  }
+
+  .tool-card img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .tool-card p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tools-header h2 {
+    font-size: 2rem;
+  }
+
+  .section-label {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+  }
 }
 
 /* =========================
@@ -436,8 +585,8 @@ body.dark .hero {
 ========================= */
 .soft-skills-card {
   text-align: center;
-  margin-top: 3rem;
-  padding: 2rem 1rem;
+  margin-top: 2rem;
+  padding: 2rem 1.5rem;
 }
 
 .soft-skills-card h3 {
@@ -471,6 +620,55 @@ body.dark .hero {
 .soft-skills-grid span:hover {
   transform: translateY(-4px) scale(1.02);
   box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+}
+/* =========================
+   DARK MODE SUPPORT FOR EDUCATION, EXPERIENCE, AND SOFT SKILLS
+========================= */
+body.dark .info-card,
+body.dark .education-item,
+body.dark .experience-item,
+body.dark .soft-skills-grid span {
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+body.dark .experience-year {
+  background: rgba(255,255,255,0.08);
+}
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .info-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-content {
+    text-align: center;
+  }
+
+  .about-image {
+    max-width: 320px;
+  }
+
+  .info-card {
+    padding: 1.5rem;
+  }
+
+  .info-card h3 {
+    font-size: 1.6rem;
+  }
+
+  .soft-skills-grid span {
+    font-size: 0.95rem;
+    padding: 12px 18px;
+  }
 }
 
 /* SERVICES */
@@ -508,39 +706,6 @@ body.dark .hero {
   color: var(--muted);
 }
 
-/* SKILLS */
-.skills-grid {
-  max-width: 1040px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 20px;
-}
-
-.skill-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px 18px;
-  text-align: center;
-  box-shadow: var(--shadow);
-  transition: 0.25s ease;
-}
-
-.skill-card:hover {
-  transform: translateY(-5px);
-}
-
-.skill-card img {
-  width: 58px;
-  height: 58px;
-  object-fit: contain;
-  margin: 0 auto 12px;
-}
-
-.skill-card p {
-  font-weight: 600;
-}
 
 /* PROJECTS */
 .card-grid {
