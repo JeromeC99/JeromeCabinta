@@ -431,6 +431,31 @@ body.dark .hero {
   margin: 0 auto;
 }
 
+/* =========================
+   SOFT SKILLS - PILL BADGES
+========================= */
+.soft-skills-card {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem 1rem;
+}
+
+.soft-skills-card h3 {
+  font-size: 2rem;
+  margin-bottom: 1.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.soft-skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .soft-skills-grid span {
   background: var(--card-bg);
   border: 1px solid rgba(0,0,0,0.08);
