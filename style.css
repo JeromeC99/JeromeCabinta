@@ -43,8 +43,9 @@ body {
 }
 
 img {
-  max-width: 100%;
+  max-width: 50%;
   display: block;
+  margin: auto;
 }
 
 a {
@@ -284,104 +285,135 @@ body.dark .hero {
   color: var(--muted);
 }
 
-/* ABOUT */
 /* =========================
-   ABOUT SECTION PREMIUM LAYOUT
+   ABOUT SECTION
 ========================= */
 .about {
-  max-width: var(--container-width);
+  max-width: 1200px;
   margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3rem;
-  align-items: flex-start;
+  padding: 5rem 1.5rem;
 }
 
-.about-image {
-  flex: 1 1 320px;
-  max-width: 400px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-
-.about-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* =========================
+   ABOUT SECTION PREMIUM
+========================= */
+.about {
+  padding: 100px 20px;
+  background: #f8f8f8;
 }
 
 .about-content {
-  flex: 2 1 700px;
+  max-width: 1250px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.section-tag {
+.section-label {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: 999px;
-  background: rgba(0,0,0,0.06);
+  background: #ececec;
   font-size: 0.9rem;
   font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-body.dark .section-tag {
-  background: rgba(255,255,255,0.08);
+  margin-bottom: 20px;
 }
 
 .about-content h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.2;
-  margin-bottom: 1rem;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.15;
+  margin-bottom: 25px;
+  font-weight: 800;
+  color: #111;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-intro {
-  font-size: 1.05rem;
-  color: var(--muted-color);
-  max-width: 760px;
-  margin-bottom: 2rem;
+  max-width: 900px;
+  margin: 0 auto 60px;
+  font-size: 1.15rem;
   line-height: 1.9;
+  color: #666;
 }
 
-.about-content p {
-  color: var(--muted);
-  margin-bottom: 14px;
-}
-
-.about-highlights {
+.about-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin-top: 28px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  align-items: start;
+  margin-bottom: 60px;
 }
 
-.highlight-box {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 22px;
-  box-shadow: var(--shadow);
+.about-card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 28px;
+  padding: 45px 32px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  text-align: center;
+  transition: 0.3s ease;
 }
 
-.highlight-box h3 {
+.about-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+}
+
+.about-card h3 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #111;
+}
+
+.about-item {
+  padding: 28px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.about-item:last-child {
+  border-bottom: none;
+}
+
+.about-item h4 {
+  font-size: 1.45rem;
+  margin-bottom: 10px;
+  color: #111;
+  font-weight: 700;
+}
+
+.about-item p {
+  font-size: 1.05rem;
+  color: #444;
   margin-bottom: 8px;
 }
 
-.premium-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
+.about-item span {
+  display: block;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.7;
 }
+
+.year-badge {
+  display: inline-block;
+  padding: 8px 18px;
+  background: #f1f1f1;
+  border-radius: 999px;
+  font-size: 0.95rem !important;
+  font-weight: 700;
+  color: #111 !important;
+  margin-bottom: 18px;
+}
+
 /* =========================
-   EDUCATION + EXPERIENCE SIDE BY SIDE
+   EDUCATION + EXPERIENCE
 ========================= */
 .info-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   margin-top: 2rem;
-  align-items: start;
 }
 
 .info-card {
@@ -404,7 +436,6 @@ body.dark .section-tag {
   color: var(--text-color);
 }
 
-/* Education + Experience list */
 .education-list,
 .experience-list {
   display: flex;
@@ -457,16 +488,44 @@ body.dark .section-tag {
   font-weight: 700;
   color: var(--accent-color);
 }
+
+/* MOBILE */
+@media (max-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card {
+    padding: 35px 24px;
+  }
+
+  .about-card h3 {
+    font-size: 1.7rem;
+  }
+
+  .about-item h4 {
+    font-size: 1.2rem;
+  }
+
+  .about-intro {
+    font-size: 1rem;
+  }
+
+  .about-image-center img {
+    max-width: 100%;
+  }
+}
 /* =========================
-   TOOLS & SKILLS PREMIUM SECTION
+   TOOLS & SKILLS
 ========================= */
-.tools-section {
-  padding: 6rem 1.5rem;
+.tools-section-inside {
+  margin-top: 5rem;
   text-align: center;
 }
 
 .tools-header {
   margin-bottom: 3rem;
+  text-align: center;
 }
 
 .section-label {
@@ -483,8 +542,9 @@ body.dark .section-tag {
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 800;
   color: var(--text-color);
-  margin: 0;
+  margin: 0 auto;
   line-height: 1.2;
+  text-align: center;
 }
 
 .tools-grid {
@@ -531,61 +591,12 @@ body.dark .section-tag {
   margin: 0;
 }
 
-/* Dark Mode */
-body.dark .tool-card {
-  background: #111;
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-}
-
-body.dark .section-label {
-  color: #d2a679;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .tools-section {
-    padding: 4rem 1rem;
-  }
-
-  .tools-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-  }
-
-  .tool-card {
-    max-width: 100%;
-    min-height: 150px;
-    padding: 1.5rem 1rem;
-  }
-
-  .tool-card img {
-    width: 50px;
-    height: 50px;
-  }
-
-  .tool-card p {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .tools-header h2 {
-    font-size: 2rem;
-  }
-
-  .section-label {
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-  }
-}
-
 /* =========================
-   SOFT SKILLS - PILL BADGES
+   SOFT SKILLS
 ========================= */
 .soft-skills-card {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 4rem;
   padding: 2rem 1.5rem;
 }
 
@@ -621,19 +632,33 @@ body.dark .section-label {
   transform: translateY(-4px) scale(1.02);
   box-shadow: 0 10px 28px rgba(0,0,0,0.08);
 }
+
 /* =========================
-   DARK MODE SUPPORT FOR EDUCATION, EXPERIENCE, AND SOFT SKILLS
+   DARK MODE
 ========================= */
+body.dark .section-tag {
+  background: rgba(255,255,255,0.08);
+}
+
 body.dark .info-card,
-body.dark .education-item,
-body.dark .experience-item,
+body.dark .tool-card,
 body.dark .soft-skills-grid span {
   border: 1px solid rgba(255,255,255,0.08);
+}
+
+body.dark .tool-card {
+  background: #111;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.25);
 }
 
 body.dark .experience-year {
   background: rgba(255,255,255,0.08);
 }
+
+body.dark .section-label {
+  color: #d2a679;
+}
+
 /* =========================
    RESPONSIVE
 ========================= */
@@ -645,16 +670,7 @@ body.dark .experience-year {
 
 @media (max-width: 768px) {
   .about {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .about-content {
-    text-align: center;
-  }
-
-  .about-image {
-    max-width: 320px;
+    padding: 4rem 1rem;
   }
 
   .info-card {
@@ -665,9 +681,44 @@ body.dark .experience-year {
     font-size: 1.6rem;
   }
 
+  .about-image-center img {
+    max-width: 300px;
+  }
+
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .tool-card {
+    max-width: 100%;
+    min-height: 150px;
+    padding: 1.5rem 1rem;
+  }
+
+  .tool-card img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .tool-card p {
+    font-size: 1rem;
+  }
+
   .soft-skills-grid span {
     font-size: 0.95rem;
     padding: 12px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tools-header h2 {
+    font-size: 2rem;
+  }
+
+  .section-label {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
   }
 }
 
@@ -730,8 +781,8 @@ body.dark .experience-year {
 }
 
 .project-card img {
-  width: 100%;
-  height: 400px;
+  width: auto;
+  height: auto;
   object-fit: auto;
   transition: 0.4s ease;
 }
