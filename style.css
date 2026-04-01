@@ -546,23 +546,24 @@ a {
 
 .testimonial-top {
   display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 25px;
+  flex-direction: column; /* STACK vertically */
+  align-items: center;   /* center everything */
+  text-align: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
 .testimonial-img {
-  width: 95px;
-  height: 95px;
-  object-fit: cover;
-  border-radius: 22px;
-  border: 2px solid var(--border);
-  flex-shrink: 0;
+  width: 232.48px;
+  height: 208.95px;
+  object-buttom: cover;
+  border-radius: 0%;
+  border: 3px solid var(--border);
 }
 
 .testimonial-person h3 {
   font-size: 1.2rem;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 .testimonial-person p {
@@ -867,8 +868,8 @@ body.dark .btn.secondary {
   }
 
   .testimonial-img {
-    width: 80px;
-    height: 80px;
+    width: auto;
+    height: auto;
   }
 
   .pill-grid span {
