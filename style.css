@@ -142,14 +142,14 @@ a {
 .hero {
   min-height: 90vh;
   display: flex;
-  align-items: center;
+
   justify-content: center;
   text-align: center;
 }
 
 .hero-content {
   max-width: 900px;
-  width: 100%;
+  width: auto;
 }
 
 .hero h1 {
@@ -842,7 +842,7 @@ body.dark .btn.secondary {
 /* SMALL MOBILE */
 @media (max-width: 480px) {
   .section {
-    padding: 65px 14px;
+    padding: 5px 14px;
   }
 
   .hero h1 {
