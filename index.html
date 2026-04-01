@@ -418,19 +418,27 @@
   </div>
 </section>
 
-<!-- PROJECT MODAL -->
+<!-- MODAL -->
 <div id="project-modal" class="modal">
   <div class="modal-content">
+
     <span class="close">&times;</span>
 
-    <div class="slider-wrapper">
-      <button class="slider-btn prev-btn">&#10094;</button>
-      <img id="modal-img" src="" alt="Project Preview">
-      <button class="slider-btn next-btn">&#10095;</button>
+    <div class="modal-slider-wrapper">
+      <button class="slider-btn prev">&#10094;</button>
+
+      <!-- SCROLLABLE IMAGE AREA -->
+      <div class="modal-image-scroll" id="modal-image-scroll">
+        <img id="modal-img" src="" alt="">
+      </div>
+
+      <button class="slider-btn next">&#10095;</button>
     </div>
 
+    <!-- DOTS -->
     <div class="slider-dots" id="slider-dots"></div>
 
+    <!-- TEXT -->
     <h3 id="modal-title"></h3>
     <p id="modal-desc"></p>
   </div>
