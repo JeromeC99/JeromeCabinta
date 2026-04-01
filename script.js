@@ -85,6 +85,8 @@ function updateModalImage() {
 }
 
 /* OPEN MODAL */
+const modalLink = document.getElementById("modal-link");
+
 document.querySelectorAll(".view-project").forEach(button => {
   button.addEventListener("click", (e) => {
 
@@ -93,6 +95,7 @@ document.querySelectorAll(".view-project").forEach(button => {
     const title = btn.dataset.title;
     const desc = btn.dataset.description;
     const images = btn.dataset.images || "";
+    const link = btn.dataset.link || "#";
 
     currentImages = images
       ? images.split(",").map(img => img.trim())
@@ -102,6 +105,10 @@ document.querySelectorAll(".view-project").forEach(button => {
 
     modalTitle.textContent = title;
     modalDesc.textContent = desc;
+
+    if (modalLink) {
+      modalLink.href = link; // ✅ no error
+    }
 
     updateModalImage();
     modal.style.display = "block";
