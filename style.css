@@ -437,9 +437,11 @@ a {
 }
 
 .card-grid {
+  max-width: 1400px;
+  margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 30px;
 }
 
 .project-card {
@@ -448,7 +450,7 @@ a {
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
 }
 
 .project-card:hover {
@@ -456,71 +458,213 @@ a {
 }
 
 .project-card img {
-  width: 302.02px;
-  height: 359.42px;
-  object-bottom: cover;
-  margin: auto;
+  width: auto;
+  height: auto;
+  object-fit: cover;
 }
 
 .project-info {
-  padding: 25px;
+  padding: 28px;
 }
 
 .project-info h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+  font-size: 1.8rem;
+  margin-bottom: 12px;
 }
 
 .project-info p {
   color: var(--text-light);
-  margin-bottom: 18px;
+  margin-bottom: 20px;
+  font-size: 1.05rem;
 }
 
 .view-project {
   border: none;
   background: var(--text);
   color: #fff;
-  padding: 12px 20px;
+  padding: 14px 24px;
   border-radius: 999px;
   font-weight: 700;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-project:hover {
+  transform: translateY(-3px);
 }
 
 /* MODAL */
 .modal {
   display: none;
   position: fixed;
-  z-index: 2000;
+  z-index: 3000;
   inset: 0;
-  background: rgba(0,0,0,0.75);
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(8px);
   padding: 20px;
+  overflow-y: auto;
 }
 
 .modal-content {
   background: var(--surface);
-  max-width: 800px;
+  max-width: 980px;
   width: 100%;
   margin: 50px auto;
-  border-radius: 24px;
+  border-radius: 30px;
   padding: 30px;
   position: relative;
   text-align: center;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.25);
+  animation: modalFade 0.35s ease;
 }
 
-.modal-content img {
-  border-radius: 20px;
-  margin-bottom: 20px;
-  max-height: 400px;
-  object-fit: cover;
+.slider-wrapper {
+  position: relative;
   width: 100%;
+  margin-bottom: 20px;
+}
+
+#modal-img {
+  width: 100%;
+  max-height: 540px;
+  object-fit: contain;
+  border-radius: 24px;
+  background: var(--surface-2);
+}
+
+/* SLIDER BUTTONS */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  z-index: 10;
+}
+
+.slider-btn:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.prev-btn {
+  left: 16px;
+}
+
+.next-btn {
+  right: 16px;
+}
+
+/* DOTS */
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.slider-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.slider-dots span.active {
+  background: var(--text);
+  transform: scale(1.15);
+}
+
+.modal-content h3 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 16px;
+}
+
+.modal-content p {
+  color: var(--text-light);
+  font-size: 1.08rem;
+  line-height: 1.9;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .close {
   position: absolute;
-  top: 14px;
+  top: 16px;
   right: 24px;
-  font-size: 2rem;
+  font-size: 2.2rem;
+  font-weight: bold;
   cursor: pointer;
+  color: var(--text);
+  transition: 0.3s ease;
+  z-index: 20;
+}
+
+.close:hover {
+  transform: scale(1.1);
+}
+
+/* MODAL ANIMATION */
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .project-card img {
+    height: auto;
+  }
+
+  .project-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .modal-content {
+    padding: 22px 18px;
+    margin: 30px auto;
+    border-radius: 24px;
+  }
+
+  #modal-img {
+    max-height: 300px;
+    border-radius: 18px;
+  }
+
+  .slider-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+  }
+
+  .modal-content h3 {
+    font-size: 1.7rem;
+  }
+
+  .modal-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .close {
+    top: 12px;
+    right: 18px;
+    font-size: 2rem;
+  }
 }
 
 /* TESTIMONIALS */
