@@ -1074,7 +1074,7 @@ body.dark .slider-dots .dot.active {
   }
 
   .project-card img {
-    height: 200px;
+    height: auto;
   }
 
   .pill-grid span {
