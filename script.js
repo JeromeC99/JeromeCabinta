@@ -43,118 +43,147 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.15 });
 
   animatedElements.forEach(el => observer.observe(el));
-/* =========================
-   PROJECT MODAL + SLIDER
-========================= */
-const modal = document.getElementById("project-modal");
-const modalImg = document.getElementById("modal-img");
-const modalTitle = document.getElementById("modal-title");
-const modalDesc = document.getElementById("modal-desc");
-const closeModal = document.querySelector(".close");
-const prevBtn = document.querySelector(".slider-btn.prev");
-const nextBtn = document.querySelector(".slider-btn.next");
-const dotsContainer = document.getElementById("slider-dots");
-const imageScroll = document.getElementById("modal-image-scroll");
 
-let currentImages = [];
-let currentIndex = 0;
+  /* =========================
+     PROJECT MODAL + SLIDER
+  ========================= */
+  const modal = document.getElementById("project-modal");
+  const modalImg = document.getElementById("modal-img");
+  const modalTitle = document.getElementById("modal-title");
+  const modalDesc = document.getElementById("modal-desc");
+  const closeModal = document.querySelector(".close");
+  const prevBtn = document.querySelector(".slider-btn.prev");
+  const nextBtn = document.querySelector(".slider-btn.next");
+  const dotsContainer = document.getElementById("slider-dots");
+  const imageScroll = document.getElementById("modal-image-scroll");
+  const modalLink = document.getElementById("modal-link");
 
-function renderDots() {
-  dotsContainer.innerHTML = "";
+  let currentImages = [];
+  let currentLinks = [];
+  let currentIndex = 0;
+  let isWebsiteProject = false;
 
-  currentImages.forEach((_, index) => {
-    const dot = document.createElement("span");
-    dot.classList.add("dot");
-    if (index === currentIndex) dot.classList.add("active");
+  function renderDots() {
+    dotsContainer.innerHTML = "";
 
-    dot.addEventListener("click", () => {
-      currentIndex = index;
-      updateModalImage();
+    currentImages.forEach((_, index) => {
+      const dot = document.createElement("span");
+      dot.classList.add("dot");
+
+      if (index === currentIndex) {
+        dot.classList.add("active");
+      }
+
+      dot.addEventListener("click", () => {
+        currentIndex = index;
+        updateModalImage();
+      });
+
+      dotsContainer.appendChild(dot);
     });
+  }
 
-    dotsContainer.appendChild(dot);
-  });
-}
+  function updateModalImage() {
+    if (!currentImages.length) return;
 
-function updateModalImage() {
-  modalImg.src = currentImages[currentIndex].trim();
-  renderDots();
+    modalImg.src = currentImages[currentIndex];
+    modalImg.alt = `Project Image ${currentIndex + 1}`;
 
-  imageScroll.scrollTop = 0;
-  imageScroll.scrollLeft = 0;
-}
-
-/* OPEN MODAL */
-const modalLink = document.getElementById("modal-link");
-
-document.querySelectorAll(".view-project").forEach(button => {
-  button.addEventListener("click", (e) => {
-
-    const btn = e.currentTarget;
-
-    const title = btn.dataset.title;
-    const desc = btn.dataset.description;
-    const images = btn.dataset.images || "";
-    const link = btn.dataset.link || "#";
-
-    currentImages = images
-      ? images.split(",").map(img => img.trim())
-      : [];
-
-    currentIndex = 0;
-
-    modalTitle.textContent = title;
-    modalDesc.textContent = desc;
-
-    if (modalLink) {
-      modalLink.href = link; // ✅ no error
+    // Only WEBSITE project gets clickable links
+    if (isWebsiteProject && currentLinks[currentIndex]) {
+      modalLink.href = currentLinks[currentIndex];
+      modalLink.style.pointerEvents = "auto";
+      modalLink.style.cursor = "pointer";
+      modalLink.target = "_blank";
+    } else {
+      modalLink.href = "#";
+      modalLink.style.pointerEvents = "none";
+      modalLink.style.cursor = "default";
     }
 
-    updateModalImage();
-    modal.style.display = "block";
-    document.body.style.overflow = "hidden";
+    renderDots();
+    imageScroll.scrollTop = 0;
+    imageScroll.scrollLeft = 0;
+  }
+
+  /* OPEN MODAL */
+  document.querySelectorAll(".view-project").forEach(button => {
+    button.addEventListener("click", (e) => {
+      const btn = e.currentTarget;
+
+      const title = btn.dataset.title || "";
+      const desc = btn.dataset.description || "";
+      const images = btn.dataset.images || "";
+      const links = btn.dataset.links || "";
+
+      currentImages = images
+        .split(",")
+        .map(img => img.trim())
+        .filter(img => img !== "");
+
+      currentLinks = links
+        .split(",")
+        .map(link => link.trim())
+        .filter(link => link !== "");
+
+      currentIndex = 0;
+
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+
+      // Only WEBSITE project should be clickable
+      isWebsiteProject = title.toLowerCase().includes("website");
+
+      updateModalImage();
+      modal.style.display = "block";
+      document.body.style.overflow = "hidden";
+    });
   });
-});
 
-/* PREV / NEXT */
-prevBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-  updateModalImage();
-});
+  /* PREV */
+  prevBtn.addEventListener("click", () => {
+    if (!currentImages.length) return;
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    updateModalImage();
+  });
 
-nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % currentImages.length;
-  updateModalImage();
-});
+  /* NEXT */
+  nextBtn.addEventListener("click", () => {
+    if (!currentImages.length) return;
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    updateModalImage();
+  });
 
-/* CLOSE */
-closeModal.addEventListener("click", () => {
-  modal.style.display = "none";
-  document.body.style.overflow = "auto";
-});
-
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
+  /* CLOSE */
+  closeModal.addEventListener("click", () => {
     modal.style.display = "none";
     document.body.style.overflow = "auto";
-  }
-});
+  });
 
-/* KEYBOARD SUPPORT */
-document.addEventListener("keydown", (e) => {
-  if (modal.style.display === "block") {
-    if (e.key === "Escape") {
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
       modal.style.display = "none";
       document.body.style.overflow = "auto";
     }
-    if (e.key === "ArrowRight") {
-      currentIndex = (currentIndex + 1) % currentImages.length;
-      updateModalImage();
+  });
+
+  /* KEYBOARD SUPPORT */
+  document.addEventListener("keydown", (e) => {
+    if (modal.style.display === "block") {
+      if (e.key === "Escape") {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+
+      if (e.key === "ArrowRight" && currentImages.length) {
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        updateModalImage();
+      }
+
+      if (e.key === "ArrowLeft" && currentImages.length) {
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        updateModalImage();
+      }
     }
-    if (e.key === "ArrowLeft") {
-      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-      updateModalImage();
-    }
-  }
-});
+  });
 });
