@@ -230,13 +230,6 @@ a {
   margin-bottom: 60px;
 }
 
-.about-image-center img {
-  width: 100%;
-  max-width: 7000px;
-  border-radius: 32px;
-  box-shadow: var(--shadow);
-  object-fit: cover;
-}
 
 .about-grid {
   display: grid;
@@ -294,6 +287,167 @@ a {
   font-weight: 700;
   color: var(--text) !important;
   margin-bottom: 15px;
+}
+
+/* =========================
+   ABOUT IMAGE CAROUSEL
+========================= */
+.about-image-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.about-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 32px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.about-slides {
+  position: relative;
+  width: 100%;
+  height: 560px;
+}
+
+/* Each slide container */
+.about-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #f3f3f3;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.about-slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* THIS makes all logos/images same visual size */
+.about-slide img {
+  width: 100%;
+  max-width: 7000px;   /* same max width for all */
+  max-height: 420px;  /* same max height for all */
+  object-fit: contain;
+  object-position: center;
+  margin: 0 auto;
+}
+
+/* Arrows */
+.about-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 1.7rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.3s ease;
+}
+
+.about-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.about-btn.prev {
+  left: 18px;
+}
+
+.about-btn.next {
+  right: 18px;
+}
+
+/* Dots */
+.about-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.about-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.about-dot.active {
+  background: #111;
+  transform: scale(1.15);
+}
+
+/* Dark Mode */
+body.dark .about-slide {
+  background: #1c1d20;
+}
+
+body.dark .about-dot {
+  background: #555;
+}
+
+body.dark .about-dot.active {
+  background: #fff;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .about-slides {
+    height: 380px;
+  }
+
+  .about-slide {
+    padding: 20px;
+  }
+
+  .about-slide img {
+    max-width: 90%;
+    max-height: 280px;
+  }
+
+  .about-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1.4rem;
+  }
+
+  .about-btn.prev {
+    left: 10px;
+  }
+
+  .about-btn.next {
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-slides {
+    height: 280px;
+  }
+
+  .about-slide img {
+    max-height: 200px;
+  }
 }
 
 /* =========================

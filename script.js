@@ -45,6 +45,49 @@ document.addEventListener("DOMContentLoaded", () => {
   animatedElements.forEach(el => observer.observe(el));
 
   /* =========================
+   ABOUT IMAGE CAROUSEL
+========================= */
+const aboutSlides = document.querySelectorAll(".about-slide");
+const aboutDots = document.querySelectorAll(".about-dot");
+const aboutPrev = document.getElementById("aboutPrev");
+const aboutNext = document.getElementById("aboutNext");
+
+let aboutIndex = 0;
+
+function showAboutSlide(index) {
+  aboutSlides.forEach(slide => slide.classList.remove("active"));
+  aboutDots.forEach(dot => dot.classList.remove("active"));
+
+  aboutSlides[index].classList.add("active");
+  aboutDots[index].classList.add("active");
+}
+
+if (aboutSlides.length > 0) {
+  aboutPrev.addEventListener("click", () => {
+    aboutIndex = (aboutIndex - 1 + aboutSlides.length) % aboutSlides.length;
+    showAboutSlide(aboutIndex);
+  });
+
+  aboutNext.addEventListener("click", () => {
+    aboutIndex = (aboutIndex + 1) % aboutSlides.length;
+    showAboutSlide(aboutIndex);
+  });
+
+  aboutDots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      aboutIndex = index;
+      showAboutSlide(aboutIndex);
+    });
+  });
+
+  // Optional auto-slide every 4 seconds
+  setInterval(() => {
+    aboutIndex = (aboutIndex + 1) % aboutSlides.length;
+    showAboutSlide(aboutIndex);
+  }, 4000);
+}
+
+  /* =========================
      PROJECT MODAL + SLIDER
   ========================= */
   const modal = document.getElementById("project-modal");
