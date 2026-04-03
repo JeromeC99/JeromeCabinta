@@ -451,6 +451,150 @@ body.dark .about-dot.active {
 }
 
 /* =========================
+   CERTIFICATE IMAGE CAROUSEL
+========================= */
+.cer-image-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.cer-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 32px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.cer-slides {
+  position: relative;
+  width: 100%;
+  height: 560px;
+}
+
+.cer-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #f3f3f3;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  padding: 30px;
+}
+
+.cer-slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Arrows */
+.cer-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 1.7rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.3s ease;
+}
+
+.cer-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.cer-btn.prev {
+  left: 18px;
+}
+
+.cer-btn.next {
+  right: 18px;
+}
+
+/* Dots */
+.cer-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cer-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cer-dot.active {
+  background: #111;
+  transform: scale(1.15);
+}
+
+/* Dark Mode */
+body.dark .cer-slide {
+  background: #1c1d20;
+}
+
+body.dark .cer-dot {
+  background: #555;
+}
+
+body.dark .cer-dot.active {
+  background: #fff;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .cer-slides {
+    height: 380px;
+  }
+
+  .cer-slide {
+    padding: 20px;
+  }
+
+  .cer-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1.4rem;
+  }
+
+  .cer-btn.prev {
+    left: 10px;
+  }
+
+  .cer-btn.next {
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cer-slides {
+    height: 280px;
+  }
+
+  .cer-slide {
+    padding: 12px;
+  }
+}
+
+/* =========================
    SKILLS
 ========================= */
 .skills-section {

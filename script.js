@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   animatedElements.forEach(el => observer.observe(el));
 
-  /* =========================
+/* =========================
    ABOUT IMAGE CAROUSEL
 ========================= */
 const aboutSlides = document.querySelectorAll(".about-slide");
@@ -84,6 +84,53 @@ if (aboutSlides.length > 0) {
   setInterval(() => {
     aboutIndex = (aboutIndex + 1) % aboutSlides.length;
     showAboutSlide(aboutIndex);
+  }, 4000);
+}
+
+/* =========================
+   CERTIFICATE CAROUSEL
+========================= */
+const cerSlides = document.querySelectorAll(".cer-slide");
+const cerDots = document.querySelectorAll(".cer-dot");
+const cerPrev = document.getElementById("cerPrev");
+const cerNext = document.getElementById("cerNext");
+
+let cerIndex = 0;
+
+function showCerSlide(index) {
+  cerSlides.forEach(slide => slide.classList.remove("active"));
+  cerDots.forEach(dot => dot.classList.remove("active"));
+
+  if (cerSlides[index]) {
+    cerSlides[index].classList.add("active");
+  }
+
+  if (cerDots[index]) {
+    cerDots[index].classList.add("active");
+  }
+}
+
+if (cerSlides.length > 0 && cerPrev && cerNext) {
+  cerPrev.addEventListener("click", () => {
+    cerIndex = (cerIndex - 1 + cerSlides.length) % cerSlides.length;
+    showCerSlide(cerIndex);
+  });
+
+  cerNext.addEventListener("click", () => {
+    cerIndex = (cerIndex + 1) % cerSlides.length;
+    showCerSlide(cerIndex);
+  });
+
+  cerDots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      cerIndex = index;
+      showCerSlide(cerIndex);
+    });
+  });
+
+  setInterval(() => {
+    cerIndex = (cerIndex + 1) % cerSlides.length;
+    showCerSlide(cerIndex);
   }, 4000);
 }
 
