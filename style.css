@@ -694,8 +694,8 @@ a {
 }
 
 .testimonial-img {
-  width: 220px;
-  height: 220px;
+  width: auto;
+  height: auto;
   object-fit: cover;
   border-radius: 18px;
   border: 3px solid var(--border);
@@ -990,8 +990,8 @@ body.dark .slider-dots .dot.active {
   }
 
   .testimonial-img {
-    width: 180px;
-    height: 180px;
+    width: auto;
+    height: auto;
   }
 
   .contact-socials {
