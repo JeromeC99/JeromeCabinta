@@ -818,6 +818,68 @@ body.dark .cer-dot.active {
   object-position: top;
 }
 
+/* Container */
+.social-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* Base button */
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+/* ICON */
+.social-btn i {
+  font-size: 16px;
+}
+
+/* FACEBOOK */
+.social-btn.fb {
+  background: #1877f2;
+  color: #fff;
+}
+
+/* INSTAGRAM */
+.social-btn.ig {
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+  color: #fff;
+}
+
+/* HOVER EFFECT */
+.social-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* CLICK EFFECT */
+.social-btn:active {
+  transform: scale(0.95);
+}
+
+/* DARK MODE SUPPORT */
+body.dark .social-btn {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* LIGHT MODE SUPPORT */
+body.light .social-btn {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 /* =========================
    MODAL
 ========================= */
